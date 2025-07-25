@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Advocate Aradhita Debbarma – Portfolio</title>
+  <title>Advocate Aradhita Debbarma - Your Legal Counsel</title>
   <!-- Google Fonts & Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
@@ -76,7 +76,11 @@
   .btn { display:inline-flex; align-items:center; gap:.4em; cursor:pointer; border:none; padding:.75rem 1.5rem;
     font-weight:600; font-size:1rem; border-radius:8px; transition:all .2s;}
   .btn--primary { background:var(--color-primary); color:#fff; }
-  .btn--primary:hover { background:var(--color-primary-hover);}
+  .btn--primary:hover {
+  background: var(--color-primary-hover);
+  opacity: 0.85; /* makes whole button slightly translucent */
+  color: white;
+}
   /* NAVBAR */
   nav { position:fixed; width:100%; top:0; left:0; z-index:50; background:rgba(255,255,255,0.95); backdrop-filter:blur(10px);
     box-shadow:0 2px 6px rgba(0,0,0,.06);}
@@ -228,6 +232,7 @@ nav ul a:hover {
     animation: fadeInUp 0.4s cubic-bezier(0.16,1,0.3,1);
   }
   .modal-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.2rem;}
+  
   .modal-close {
     background: none; border: none; font-size: 1.5rem; color:var(--color-text-secondary); cursor:pointer; width:32px; height:32px;
     display:flex; align-items:center; justify-content:center; border-radius:50%;
@@ -235,17 +240,39 @@ nav ul a:hover {
   }
   .modal-close:hover {background:var(--color-gray-200);}
   .modal-contact .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  .modal-contact .contact-item i {
-    color: var(--color-primary);
-    font-size: 18px;
-    width: 24px;
-    display: inline-block;
-  }
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  background-color: #f9f9f9;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.modal-contact .contact-item:hover {
+  background-color: rgba(0, 128, 0, 0.05); /* subtle green hover */
+}
+
+.modal-contact .contact-item i {
+  color: var(--color-primary);
+  font-size: 18px;
+  width: 24px;
+}
+
+.modal-contact .contact-item a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.modal-contact .contact-item a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
   .bn {
   display: block;
   font-size: 0.95em;
