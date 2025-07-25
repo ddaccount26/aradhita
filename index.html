@@ -89,11 +89,36 @@
   nav ul a.active {color:var(--color-primary);}
   .mobile-toggle{ display:none; font-size:1.5rem; cursor:pointer; color: var(--color-primary);}
   @media (max-width:768px){
-    .mobile-toggle{ display:block;}
-    nav ul{ position:absolute; top:100%; left:0; right:0; background:#fff; flex-direction:column; gap:0; display:none; box-shadow: 0 8px 32px rgba(0,0,0,.08);}
-    nav ul.show{ display:flex; }
-    nav ul a{ padding:1rem 1.5rem; border-top:1px solid var(--color-border);}
-  }
+  .mobile-toggle{ display:block;}
+  nav ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  flex-direction: column;
+  gap: 0.75rem;
+  display: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border-radius: 0 0 12px 12px; /* ⬅ Rounded bottom corners */
+  padding: 0.75rem 0;
+}
+  nav ul.show{ display:flex; }
+  nav ul a {
+  padding: 0.75rem 1.5rem;
+  display: block;
+  border-radius: 8px; /* ⬅ Rounded link buttons */
+  transition: background-color 0.2s ease;
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+nav ul a:hover {
+  background-color: #f0f0f0; /* ⬅ Hover background */
+}
+ 
+}
 
   /*== HERO CAROUSEL ==*/
   .hero {
