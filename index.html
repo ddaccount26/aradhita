@@ -158,8 +158,28 @@
   .service-card i{ font-size:2rem; color:var(--color-primary); margin-bottom:0.7rem;}
   .about-wrapper{ display:grid; gap:2rem; align-items:center; }
   .about-text p{ margin-bottom:1rem; }
-  .blog-grid{ display:grid; gap:1.5rem; margin-top:2rem;}
-  .blog-card{ background:#fff; border:1px solid #e7e7e7; border-radius:0.4rem; padding:1.5rem; transition:.2s box-shadow ease; }
+  .blog-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  }
+  .blog-card {
+    flex: 1 1 300px; /* responsive min width */
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+  }
+  /* Make the LinkedIn iframe responsive */
+  .blog-card iframe {
+    width: 100% !important;
+    height: 500px;
+    border: none;
+    max-width: 100%;
+  }
   .blog-card:hover{ box-shadow:var(--shadow-md);}
   .blog-card h4{ margin-bottom:0.5rem; }
   .blog-card .date{ font-size:0.85rem; color:var(--color-text-secondary); margin-bottom:0.75rem; }
@@ -201,6 +221,7 @@
     width: 24px;
     display: inline-block;
   }
+
   @keyframes fadeInUp {
     from { opacity:0; transform: translateY(30px);}
     to { opacity:1; transform:translateY(0);}
@@ -333,7 +354,7 @@
         <p>As a legal expert with a passion for justice, I strive to offer comprehensive legal services with a client-centric approach. My goal is to ensure that every individual seeking legal guidance receives the support and advice they deserve. Let's work together to address your legal concerns.</p>
       </div>
       <div>
-        <img src="aradhita.png" alt="Advocate Aradhita Debbarma portrait" style="width:100%; border-radius:.6rem;">
+        <img src="aradhita.png" alt="Advocate Aradhita Debbarma portrait" style="width:80%; max-width:300px; border-radius:.6rem; display:block; margin:auto;">
       </div>
     </div>
   </section>
@@ -344,19 +365,19 @@
       <h2 class="section-title">Blog / Case Summaries</h2>
       <div class="blog-grid">
         <div class="blog-card">
-          <h4>Tripura HC Upholds Employee Rights: Landmark Win for 59 LDCs ✔</h4>
+          <h4>Tripura HC Upholds Employee Rights: Landmark Win for 59 LDCs</h4>
           <div class="date">July 2025 • High Court of Tripura</div>
           <p>Honoured to represent 59 LDCs in Tripura HC, securing their right to regular pay and service benefits after 5 years, affirming justice, dignity, and enforcement of employee rights.</p>
           <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7353028303177355264?collapsed=1" height="264" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
         </div>
         <div class="blog-card">
-          <h4>Breaking Barriers: An Indigenous Woman’s Journey in Law ✔</h4>
+          <h4>Breaking Barriers: An Indigenous Woman’s Journey in Law</h4>
           <div class="date">May 2025 • High Court of Tripura</div>
           <p>A first-generation tribal lawyer from Tripura reflects on her 8-year journey of resilience, representation, and justice — inspiring young women to pursue law despite systemic, social, and cultural odds.</p>
           <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7344683806810914816?collapsed=1" height="670" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
         </div>
         <div class="blog-card">
-          <h4>AI-Generated Content and Copyright: Who Truly Owns It? ✔</h4>
+          <h4>AI-Generated Content and Copyright: Who Truly Owns It?</h4>
           <div class="date">June 2025 </div>
           <p>As AI reshapes content creation, legal questions around authorship and copyright intensify. This piece explores ownership dilemmas, legal gray areas, and how businesses should navigate emerging intellectual property challenges.</p>
           <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7345646051040575488?collapsed=1" height="526" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
