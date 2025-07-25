@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advocate Aradhita Debbarma – Portfolio</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <!-- Inline CSS: combined custom design + .hero carousel -->
+  <style>
+  /* ==== Custom variables and utility design: from style.css attachments ==== */
+  :root {
+    --color-white: #fff;
+    --color-black: #000;
+    --color-cream-50: #fcfcf9;
+    --color-cream-100: #fffefd;
+    --color-gray-200: #f5f5f5;
+    --color-gray-300: #a7a9a9;
+    --color-gray-400: #777c7c;
+    --color-slate-500: #626c71;
+    --color-brown-600: #5e5240;
+    --color-charcoal-700: #1f2121;
+    --color-charcoal-800: #262828;
+    --color-slate-900: #13343b;
+    --color-teal-300: #32b8c6;
+    --color-teal-400: #2da6b2;
+    --color-teal-500: #21808d;
+    --color-teal-600: #1d7480;
+    --color-teal-700: #1a6873;
+    --color-teal-800: #2996a1;
+    --color-red-400: #ff5459;
+    --color-red-500: #c0152f;
+    --color-orange-400: #e68161;
+    --color-orange-500: #a84b2f;
+    --font-family-base: "Inter", "Segoe UI", Roboto, sans-serif;
+    --font-size-base: 14px;
+    --font-size-lg: 16px;
+    --font-size-xl: 18px;
+    --font-size-2xl: 20px;
+    --font-size-3xl: 24px;
+    --font-size-4xl: 30px;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 550;
+    --font-weight-bold: 600;
+    --radius-base: 8px;
+    --radius-lg: 12px;
+    --radius-full: 999px;
+    --color-primary: #21808d;
+    --color-primary-hover: #3096a1;
+    --color-text: #13343b;
+    --color-text-secondary: #626c71;
+    --color-background: #fcfcf9;
+    --color-surface: #fffefd;
+    --color-border: #e0e0e0;
+    --color-card-border: #e0e0e0;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.04), 0 2px 4px -1px rgba(0,0,0,0.02);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.04), 0 4px 6px -2px rgba(0,0,0,0.02);
+
+    --duration-normal: 250ms;
+  }
+  html { font-size: var(--font-size-base); scroll-behavior: smooth;}
+  body { font-family: var(--font-family-base); line-height:1.6; color:var(--color-text); background:var(--color-background); margin:0; overflow-x:hidden;}
+  a { color: var(--color-primary); text-decoration:none; transition:color .2s;}
+  a:hover { color: var(--color-primary-hover); }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-family-base); font-weight: var(--font-weight-bold); margin:0;}
+  h1 {font-size:var(--font-size-4xl);}
+  h2 {font-size:var(--font-size-3xl);}
+  h3 {font-size:var(--font-size-2xl);}
+  h4 {font-size:var(--font-size-xl);}
+  h5 {font-size:var(--font-size-lg);}
+  .container { width: min(90%, 1100px); margin-inline:auto; }
+  .btn { display:inline-flex; align-items:center; gap:.4em; cursor:pointer; border:none; padding:.75rem 1.5rem;
+    font-weight:600; font-size:1rem; border-radius:8px; transition:all .2s;}
+  .btn--primary { background:var(--color-primary); color:#fff; }
+  .btn--primary:hover { background:var(--color-primary-hover);}
+  /* NAVBAR */
+  nav { position:fixed; width:100%; top:0; left:0; z-index:50; background:rgba(255,255,255,0.95); backdrop-filter:blur(10px);
+    box-shadow:0 2px 6px rgba(0,0,0,.06);}
+  nav .nav-bar{ display:flex; justify-content:space-between; align-items:center; padding:.9rem 0;}
+  nav .nav-brand a{ font-weight:700; color:var(--color-primary); font-size:1.18rem; text-decoration:none; }
+  nav ul{ list-style:none; display:flex; gap:1.5rem; margin:0;}
+  nav ul a{ text-decoration:none; color:var(--color-text); font-weight:500; position:relative; padding:4px 2px;}
+  nav ul a::after{ content:''; position:absolute; width:0%; height:2px; background:var(--color-primary); left:0; bottom:-4px; transition:.3s;}
+  nav ul a:hover::after, nav ul a.active::after{ width:100%;}
+  nav ul a.active {color:var(--color-primary);}
+  .mobile-toggle{ display:none; font-size:1.5rem; cursor:pointer; color: var(--color-primary);}
+  @media (max-width:768px){
+    .mobile-toggle{ display:block;}
+    nav ul{ position:absolute; top:100%; left:0; right:0; background:#fff; flex-direction:column; gap:0; display:none; box-shadow: 0 8px 32px rgba(0,0,0,.08);}
+    nav ul.show{ display:flex; }
+    nav ul a{ padding:1rem 1.5rem; border-top:1px solid var(--color-border);}
+  }
+
+  /*== HERO CAROUSEL ==*/
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    padding-top: 4rem;
+    background:#1a2432;
+  }
+  .carousel-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    opacity: 0;
+    transition: opacity 1s;
+    background-size: cover;
+    background-position: center;
+  }
+  .carousel-slide.active { opacity: 1; z-index: 1; }
+  .carousel-overlay {
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(20,36,53,.55);
+    z-index: 2;
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+  }
+  .hero h1{ font-size:2.5rem; margin-bottom:.5rem;}
+  .hero h2{ font-size:1.25rem; font-weight:500; margin-bottom:1rem; }
+  .hero p{ max-width:580px; margin-inline:auto; margin-bottom:2rem; color:#fff;}
+  .carousel-controls {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    bottom: 25px;
+    z-index: 4;
+  }
+  .carousel-dot {
+    width: 13px; height: 13px; margin: 0 6px; border-radius: 50%;
+    background: #fff8; border: none; cursor: pointer; outline: none; transition: background 0.2s;
+  }
+  .carousel-dot.active { background: var(--color-primary); }
+
+  /*== SECTIONS ==*/
+  section { padding:4rem 0; background:transparent;}
+  .section-title{ font-size:2rem; font-weight:700; margin-bottom:1rem; text-align:center; color:var(--color-text);}
+  .services-grid{ display:grid; gap:1.5rem; margin-top:2rem; }
+  .service-card{ background:#fff; padding:1.8rem; border:1px solid var(--color-card-border); border-radius:.6rem; text-align:center;
+    transition:.2s transform ease, .2s box-shadow ease; box-shadow:var(--shadow-sm);}
+  .service-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:var(--color-primary);}
+  .service-card i{ font-size:2rem; color:var(--color-primary); margin-bottom:0.7rem;}
+  .about-wrapper{ display:grid; gap:2rem; align-items:center; }
+  .about-text p{ margin-bottom:1rem; }
+  .blog-grid{ display:grid; gap:1.5rem; margin-top:2rem;}
+  .blog-card{ background:#fff; border:1px solid #e7e7e7; border-radius:0.4rem; padding:1.5rem; transition:.2s box-shadow ease; }
+  .blog-card:hover{ box-shadow:var(--shadow-md);}
+  .blog-card h4{ margin-bottom:0.5rem; }
+  .blog-card .date{ font-size:0.85rem; color:var(--color-text-secondary); margin-bottom:0.75rem; }
+  .testimonials-grid{ display:grid; gap:1.5rem; margin-top:2rem; }
+  .testimonial-card{ background:#fff; border:1px solid #e0e0e0; border-radius:0.4rem; padding:1.5rem; }
+  .testimonial-card h5{ font-size:1rem; font-weight:600; margin-bottom:0.6rem; color:var(--color-primary);}
+  .testimonial-card p{ font-style:italic; color:var(--color-text-secondary);}
+  .contact-info{ display:flex; flex-direction:column; gap:.75rem; align-items:center; text-align:center;}
+  .contact-info a{ color:var(--color-primary); text-decoration:none; font-weight:600; }
+  .contact-info a:hover {text-decoration:underline;}
+  /* MODAL */
+  .modal {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center;
+    z-index: 9000; opacity: 1; visibility: visible; transition: all .25s;
+  }
+  .modal.hidden { opacity: 0; visibility: hidden; pointer-events: none;}
+  .modal-content {
+    background: var(--color-surface); border-radius: var(--radius-lg);
+    max-width: 400px; box-shadow: var(--shadow-lg); width: 90%; padding:2rem 1.8rem; position:relative;
+    animation: fadeInUp 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .modal-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:1.2rem;}
+  .modal-close {
+    background: none; border: none; font-size: 1.5rem; color:var(--color-text-secondary); cursor:pointer; width:32px; height:32px;
+    display:flex; align-items:center; justify-content:center; border-radius:50%;
+    transition:background .12s;
+  }
+  .modal-close:hover {background:var(--color-gray-200);}
+  .modal-contact .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .modal-contact .contact-item i {
+    color: var(--color-primary);
+    font-size: 18px;
+    width: 24px;
+    display: inline-block;
+  }
+  @keyframes fadeInUp {
+    from { opacity:0; transform: translateY(30px);}
+    to { opacity:1; transform:translateY(0);}
+  }
+  /* FOOTER */
+  footer{ background:var(--color-slate-900); color:#fff; padding:1rem 0; text-align:center; font-size:.95rem;}
+
+  /* RESPONSIVE */
+  @media (min-width:600px){
+    .services-grid{ grid-template-columns:repeat(2,1fr);}
+    .blog-grid, .testimonials-grid{ grid-template-columns:repeat(2,1fr);}
+  }
+  @media (min-width:900px){
+    .services-grid{ grid-template-columns:repeat(4,1fr);}
+    .about-wrapper{ grid-template-columns:1fr 1fr;}
+    .blog-grid, .testimonials-grid{ grid-template-columns:repeat(3,1fr);}
+  }
+  @media (max-width:900px){
+    .about-wrapper{ grid-template-columns:1fr;}
+    .about-wrapper img{margin-top:2.2rem;}
+  }
+  @media (max-width:480px){
+    .hero h1{ font-size:1.5rem;}
+    .section-title{font-size:1.3rem;}
+    .service-card,.testimonial-card,.contact-info{padding:1rem;}
+    .modal-content{padding:1rem;}
+  }
+  </style>
+</head>
+<body>
+  <!-- ========= NAVIGATION ========= -->
+  <nav>
+    <div class="container nav-bar">
+      <div class="nav-brand"><a href="#home">Advocate Aradhita Debbarma</a></div>
+      <i class="fas fa-bars mobile-toggle"></i>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========= HERO WITH CAROUSEL ========= -->
+  <header id="home" class="hero">
+    <!-- Carousel Slides -->
+    <div class="carousel-slide active"
+         style="background-image:url('https://i0.wp.com/www.eastmojo.com/wp-content/uploads/2022/09/Tripura-high-court.png?fit=1200%2C675&ssl=1');"></div>
+    <div class="carousel-slide"
+         style="background-image:url('https://www.thestatesman.com/wp-content/uploads/2019/07/Peace-Justice-Strong-Institutions.jpg');"></div>
+    <div class="carousel-slide"
+         style="background-image:url('https://media.istockphoto.com/id/1419174484/photo/law-theme-judge-office.jpg?s=612x612&w=0&k=20&c=oww34bCbEwysGlwNepsHqgq2BePp_xi1BHdFuR_TYXU=');"></div>
+
+    <!-- Overlay -->
+    <div class="carousel-overlay"></div>
+    <!-- Hero Content -->
+    <div class="container hero-content">
+      <h1>Advocate Aradhita Debbarma</h1>
+      <h2>Welcome to my legal services platform.</h2>
+      <p>I am dedicated to providing top-notch legal advice and solutions tailored to meet your specific needs.</p>
+      <a href="#" class="btn btn--primary consultation-btn" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i> Book Consultation
+      </a>
+    </div>
+    <!-- Carousel Dots -->
+    <div class="carousel-controls">
+      <button class="carousel-dot active" aria-label="Show slide 1"></button>
+      <button class="carousel-dot" aria-label="Show slide 2"></button>
+      <button class="carousel-dot" aria-label="Show slide 3"></button>
+    </div>
+  </header>
+
+  <!-- ========= SERVICES ========= -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fas fa-users"></i>
+          <h4>Family Dispute</h4>
+          <p>Expert guidance in family law matters and dispute resolution.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-house-chimney"></i>
+          <h4>Property Law Counseling</h4>
+          <p>Comprehensive property law advice and legal counseling.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-briefcase"></i>
+          <h4>Business Consultation</h4>
+          <p>Professional business law consultation and advisory services.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-file-contract"></i>
+          <h4>Drafting, Pleading & Conveyance</h4>
+          <p>Expert document drafting and legal conveyance services.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-handshake"></i>
+          <h4>Arbitration & Conciliation</h4>
+          <p>Alternative dispute resolution through arbitration and conciliation.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-scale-balanced"></i>
+          <h4>Commercial Law</h4>
+          <p>Specialized commercial law services for businesses.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-gavel"></i>
+          <h4>Civil Procedure</h4>
+          <p>Expert handling of civil procedure and litigation matters.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-balance-scale"></i>
+          <h4>Criminal Law</h4>
+          <p>Comprehensive criminal law defense and representation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= ABOUT ========= -->
+  <section id="about" style="background:#f5f5f5;">
+    <div class="container about-wrapper">
+      <div class="about-text">
+        <h2 class="section-title" style="text-align:left;">About</h2>
+        <p>I am currently practicing in the High Court of Tripura, District &amp; Sessions Judge Court, Consumer Redressal Forum and Land Acquisition Court.</p>
+        <p>As a legal expert with a passion for justice, I strive to offer comprehensive legal services with a client-centric approach. My goal is to ensure that every individual seeking legal guidance receives the support and advice they deserve. Let's work together to address your legal concerns.</p>
+      </div>
+      <div>
+        <img src="C:\Users\ddacc\OneDrive\Documents\python\Portfolios\aradhita.png"
+             alt="Advocate Aradhita Debbarma portrait" style="width:100%; border-radius:.6rem;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= BLOG ========= -->
+  <section id="blog">
+    <div class="container">
+      <h2 class="section-title">Blog / Case Summaries</h2>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <h4>Tripura HC Upholds Employee Rights: Landmark Win for 59 LDCs ✔</h4>
+          <div class="date">Jan 2025 • High Court of Tripura</div>
+          <p>Honoured to represent 59 LDCs in Tripura HC, securing their right to regular pay and service benefits after 5 years, affirming justice, dignity, and enforcement of employee rights.</p>
+          <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7353028303177355264?collapsed=1" height="264" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+        </div>
+        <div class="blog-card">
+          <h4>Commercial Contract Arbitration</h4>
+          <div class="date">Nov 2024 • Agartala</div>
+          <p>Represented an SME in a ₹3 crore breach-of-contract arbitration; achieved a 90 % award in client’s favour within five months.</p>
+        </div>
+        <div class="blog-card">
+          <h4>Custody Arrangement Mediation</h4>
+          <div class="date">Aug 2024 • Family Court</div>
+          <p>Mediated a joint-custody arrangement prioritising child welfare, avoiding protracted litigation and ensuring enforceable parental responsibilities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= TESTIMONIALS ========= -->
+  <section id="testimonials" style="background:#f5f5f5;">
+    <div class="container">
+      <h2 class="section-title">Testimonials</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <h5>Saumyadeep Sarkar</h5>
+          <p>“Aradhita is a highly skilled and dedicated professional. Their expertise, clear guidance, and commitment to justice made our legal process smooth and stress-free. Highly recommended!”</p>
+        </div>
+        <div class="testimonial-card">
+          <h5>Shubham Goyal</h5>
+          <p>“I happened to seek consultation for a property dispute and she was on point with the next steps and direction to sort it out.”</p>
+        </div>
+        <div class="testimonial-card">
+          <h5>Shubharaj Paul</h5>
+          <p>“I just wanted to take a moment to express my sincere appreciation for your invaluable advice and support. Your expertise, attention to detail, and professionalism have been incredibly reassuring.”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= CONTACT ========= -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-info">
+        <div class="contact-item"><i class="fas fa-phone"></i> <a href="tel:+919774743163">+91 97747 43163</a></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:aradhitadebbarma8@gmail.com">aradhitadebbarma8@gmail.com</a></div>
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>Krishnanagar, Pragati Road, Agartala, Tripura</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= MODAL (Book Consultation) ========= -->
+  <div class="modal hidden" id="consultationModal" aria-modal="true" role="dialog" tabindex="-1">
+    <div class="modal-content" role="document">
+      <div class="modal-header">
+        <h3>Book Consultation</h3>
+        <button class="modal-close" title="Close Modal" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>You can reach me directly via WhatsApp, phone or email:</p>
+        <div class="modal-contact">
+          <div class="contact-item"><i class="fab fa-whatsapp"></i>
+            <a href="https://wa.me/919774743163?text=Hello%20Advocate%20Aradhita%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener">Message on WhatsApp</a>
+          </div>
+          <div class="contact-item"><i class="fas fa-phone"></i>
+            <a href="tel:+919774743163">+91 97747 43163</a>
+          </div>
+          <div class="contact-item"><i class="fas fa-envelope"></i>
+            <a href="mailto:aradhitadebbarma8@gmail.com">aradhitadebbarma8@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========= FOOTER ========= -->
+  <footer>
+    &copy; 2025 Advocate Aradhita Debbarma. All rights reserved.
+  </footer>
+
+  <!-- ========= JS: carousel, menu, modal, smooth scroll, nav highlights ========= -->
+  <script>
+  // ==== Mobile nav toggle ====
+  const toggle = document.querySelector('.mobile-toggle');
+  const navUl  = document.querySelector('nav ul');
+  toggle.addEventListener('click', () => navUl.classList.toggle('show'));
+  document.querySelectorAll('nav ul a').forEach(link=>{
+    link.addEventListener('click', ()=> navUl.classList.remove('show'));
+  });
+
+  // ==== Hero Carousel ====
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.carousel-dot');
+  let curSlide = 0, totalSlides = slides.length, carouselInterval;
+  function showSlide(idx) {
+    slides.forEach((slide,i)=>slide.classList.toggle('active',i===idx));
+    dots.forEach((dot,i)=>dot.classList.toggle('active',i===idx));
+    curSlide = idx;
+  }
+  function nextSlide() { showSlide((curSlide+1)%totalSlides);}
+  dots.forEach((dot,i)=>{
+    dot.addEventListener('click',()=>{
+      showSlide(i);
+      restartCarousel();
+    });
+  });
+  function startCarousel() { carouselInterval = setInterval(nextSlide, 4200);}
+  function restartCarousel() { clearInterval(carouselInterval); startCarousel();}
+  startCarousel();
+
+  // ==== Modal logic for Book Consultation Button ====
+  const consultationBtn = document.querySelector('.consultation-btn');
+  const modal = document.getElementById('consultationModal');
+  const modalClose = document.querySelector('.modal-close');
+  consultationBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    // Focus for accessibility:
+    setTimeout(()=>{
+      let focusEl = modal.querySelector("button, [href], input, [tabindex]:not([tabindex='-1'])");
+      focusEl && focusEl.focus();
+    },100);
+  });
+  function closeModal() {
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+    consultationBtn.focus();
+  }
+  modalClose.addEventListener('click', closeModal);
+  // Click outside modal to close
+  modal.addEventListener('click', function(e){ if(e.target===modal) closeModal(); });
+  // Close with Escape
+  document.addEventListener('keydown', function(e){
+    if (e.key==='Escape' && !modal.classList.contains('hidden')) closeModal();
+  });
+  // Trap focus inside modal
+  modal.addEventListener('keydown',function(e){
+    if(e.key==='Tab'){
+      const focusable = modal.querySelectorAll('button, [href], input, [tabindex]:not([tabindex="-1"])');
+      const first = focusable[0], last = focusable[focusable.length-1];
+      if(e.shiftKey && document.activeElement===first){ last.focus(); e.preventDefault();}
+      else if(!e.shiftKey && document.activeElement===last){ first.focus(); e.preventDefault();}
+    }
+  });
+
+  // ==== Smooth scroll for navigation ====
+  document.querySelectorAll('nav a[href^="#"]').forEach(link=>{
+    link.addEventListener('click',function(e){
+      const target = document.querySelector(this.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        window.scrollTo({ top: target.offsetTop - 70, behavior:'smooth'});
+        navUl.classList.remove('show');
+      }
+    });
+  });
+
+  // ==== Active nav link highlighting ====
+  function updateActiveNavLink(){
+    const sections = document.querySelectorAll('section[id], #home');
+    const navLinks = document.querySelectorAll('nav ul a');
+    let fromTop = window.scrollY+80;
+    let found = false;
+    for(let section of sections) {
+      let id = section.getAttribute("id");
+      if(id && fromTop >= section.offsetTop-80 && fromTop < section.offsetTop+section.offsetHeight){
+        navLinks.forEach(a=>a.classList.remove('active'));
+        let activeLink = document.querySelector('nav a[href="#'+id+'"]');
+        if(activeLink) activeLink.classList.add('active');
+        found = true;
+        break;
+      }
+    }
+    // Special case for very top = home
+    if(!found){
+      navLinks.forEach(a=>a.classList.remove('active'));
+      let home = document.querySelector('nav a[href="#home"]');
+      if(home) home.classList.add('active');
+    }
+  }
+  document.addEventListener('scroll', updateActiveNavLink);
+  window.addEventListener('load', updateActiveNavLink);
+
+  </script>
+</body>
+</html>
